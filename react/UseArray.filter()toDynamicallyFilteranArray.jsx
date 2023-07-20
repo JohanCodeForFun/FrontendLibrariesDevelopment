@@ -31,8 +31,10 @@ class MyComponent extends React.Component {
     };
   }
   render() {
-    const usersOnline = null; // Change this line
-    const renderOnline = null; // Change this line
+    const usersOnline = this.state.users.filter(user => user.online); // Change this line
+    const renderOnline = usersOnline.map(user => {
+      return (<li key={user.username}>{user.username}</li>)
+    }); // Change this line
     return (
       <div>
         <h1>Current Online Users:</h1>
